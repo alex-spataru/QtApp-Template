@@ -56,4 +56,4 @@ For more information, check the [`Build.yml`](.github/workflows/Build.yml) file.
 
 ## Default licence
 
-This repository is comes by default with the [MIT License](LICENSE.md). You can change it for your own needs, I won't hold a grunge against you if you need a propietary license.
+This repository is comes by default with the [MIT License](LICENSE.md). You can change it for your own needs, I won't hold a grudge against you if you need a proprietary license.
