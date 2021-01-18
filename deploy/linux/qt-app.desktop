@@ -5,5 +5,5 @@ Exec=qt-app
 Terminal=false
 Type=Application
 StartupNotify=true
-Categories=Programming;
+Categories=Development;Qt;
 Icon=qt-app
