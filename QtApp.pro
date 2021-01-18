@@ -71,8 +71,8 @@ linux:!android {
     target.path = /usr/bin
     icon.path = /usr/share/pixmaps
     desktop.path = /usr/share/applications
-    icon.files += deploy/linux/serial-studio.png
-    desktop.files += deploy/linux/serial-studio.desktop
+    icon.files += deploy/linux/qt-app.png
+    desktop.files += deploy/linux/qt-app.desktop
 
     INSTALLS += target desktop icon
 }
