@@ -6,7 +6,7 @@
 
 [![Build Status](https://github.com/alex-spataru/QtApp-Template/workflows/Build/badge.svg)](https://github.com/alex-spataru/QtApp-Template/actions)
 
-## Features
+A simple template for Qt apps with the following features:
 
 - Code for displaying a QtQuick [`ApplicationWindow`](https://doc.qt.io/qt-5/qml-qtquick-controls2-applicationwindow.html).
 - Automated builds for Windows, macOS & GNU/Linux.
