@@ -21,8 +21,6 @@ A simple template for Qt apps with the following features:
 - `clang-format` integration.
 - `.gitignore` file for Qt projects
 
-**Note:** this repo does not make use of sub-modules because I modified CuteLogger to be able to compile directly with the application.
-
 I made this repo to stop wasting time when I need to create a new project, it may or may not be updated frequently. If this project helped you, star this repository to make it more visible to other Qt developers. Contributions welcome :)
 
 ## Screenshot of UI & features
@@ -40,6 +38,19 @@ This projects uses [GitHub actions](https://github.com/features/actions) to auto
 For more information, check the [`Build.yml`](.github/workflows/Build.yml) file.
 
 **Note:** If you need to use OpenSSL for your projects, you will need to add it yourself (or make a pull-request, because I want to automate this and I still haven't done that).
+
+## Cloning
+
+This repository makes use of [`git submodule`](https://git-scm.com/book/en/v2/Git-Tools-Submodules). In order to clone it, execute this commands on your Terminal:
+
+	git clone https://github.com/alex-spataru/QtApp-Template
+	cd QtApp-Template
+	git submodule init
+	git submodule update
+	
+Alternatively, just run:
+
+	git clone --recursive https://github.com/alex-spataru/QtApp-Template
 
 ## Modifying this project to suit your needs
 
