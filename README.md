@@ -11,10 +11,10 @@ A simple template for Qt apps with the following features:
 - Code for displaying a QtQuick [`ApplicationWindow`](https://doc.qt.io/qt-5/qml-qtquick-controls2-applicationwindow.html).
 - Automated builds for Windows, macOS & GNU/Linux.
 - Issue templates.
-- Code of conduct file.
-- Translation template files & code.
-- Deploy configuration for Windows, macOS & GNU/Linux.
-- NSIS installer for Windows.
+- [Code of conduct](CODE_OF_CONDUCT.md) file.
+- Translation [template](assets/translations) files & [code](src/Translator.h).
+- Deploy configuration for [Windows](deploy/windows), [macOS](deploy/macOS) & [GNU/Linux](deploy/linux).
+- [NSIS installer](deploy/windows/nsis/setup.nsi) for Windows.
 - Save window size, position & maximize status automatically.
 - Load [`UI.qml`](assets/qml/UI.qml) asynchronously (to keep [`main.qml`](assets/qml/main.qml) small).
 - Integration with [QSimpleUpdater](https://github.com/alex-spataru/QSimpleUpdater) & [CuteLogger](https://github.com/dept2/CuteLogger).
@@ -28,7 +28,8 @@ A simple template for Qt apps with the following features:
 1. Change to your preferred license.
 2. Change the target & name of `*.pro` file.
 3. Change [`info.plist`](deploy/macOS/info.plist).
-4. Rename & change [`qt-app.desktop]`(deploy/linux/qt-app.desktop).
+4. Rename & change [`qt-app.desktop`](deploy/linux/qt-app.desktop).
+5. Change [`setup.nsi`](deploy/windows/nsis/setup.nsi).
 5. Modify env. variables of [`Build.yml`](.github/workflows/Build.yml).
 6. Hack on...
 
