@@ -25,13 +25,15 @@ A simple template for Qt apps with the following features:
 
 I made this repo to stop loosing time when I need to create a new project, it may or may not be updated frequently. If this project helped you, star this repository to make it more visible to other Qt developers. Contributions welcome :)
 
-## Deployment targets build with GitHub actions
+## Automated build & deployment with GitHub actions
 
 This projects uses [GitHub actions](https://github.com/features/actions) to automatically build & deploy binaries/installers for all major desktop platforms (Windows, macOS & GNU/Linux). The deployed files are:
 
 - For Windows, we compile a 64-bit app with MSVC 2019 & create a [NSIS](http://nsis.sourceforge.io) installer, VC redistributable is automatically added & executed by the installer.
 - For GNU/Linux, we generate an [AppImage](http://appimage.org).
 - For macOS, we create & ZIP an application bundle.
+
+For more information, check the [`Build.yml`](.github/workflows/Build.yml) file.
 
 **Note:** If you need to use OpenSSL for your projects, you will need to add it yourself (or make a pull-request, because I want to automate that and I still haven't done that).
 
