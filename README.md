@@ -34,10 +34,9 @@ This projects uses [GitHub actions](https://github.com/features/actions) to auto
 - For Windows, we compile a 64-bit app with MSVC 2019 & create a [NSIS](http://nsis.sourceforge.io) installer, VC redistributable is automatically added & executed by the installer.
 - For GNU/Linux, we generate an [AppImage](http://appimage.org).
 - For macOS, we create & ZIP an application bundle.
+- OpenSSL for Windows 64-bit with MSVC 2019.
 
 For more information, check the [`Build.yml`](.github/workflows/Build.yml) file.
-
-**Note:** If you need to use OpenSSL for your projects, you will need to add it yourself (or make a pull-request, because I want to automate this and I still haven't done that).
 
 ## Cloning
 
