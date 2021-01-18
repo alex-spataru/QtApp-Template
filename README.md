@@ -39,7 +39,8 @@ For more information, check the [`Build.yml`](.github/workflows/Build.yml) file.
 
 ## Modifying the project to suit your needs
 
-1. Change to your preferred license.
+1. Remove my email & add yours in the [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) file (I don't want to deal with your toxic users).
+1. Change to your preferred license (mine's is [MIT](https://opensource.org/licenses/MIT)).
 2. Rename the [`QtApp.pro`](QtApp.pro) file & change `TARGET` value.
 3. Modify contents of [`AppInfo.h`](https://github.com/alex-spataru/QtApp-Template/blob/master/src/AppInfo.h).
 4. Change [`info.plist`](deploy/macOS/info.plist).
