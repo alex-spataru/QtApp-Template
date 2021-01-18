@@ -34,6 +34,7 @@
 #include <QSimpleUpdater.h>
 
 #include "AppInfo.h"
+#include "Utilities.h"
 #include "Translator.h"
 
 /**
@@ -72,6 +73,7 @@ int main(int argc, char **argv)
     LOG_INFO() << QDateTime::currentDateTime();
 
     // Init application modules
+    Utilities utilities;
     Translator translator;
     QQmlApplicationEngine engine;
     auto updater = QSimpleUpdater::getInstance();
@@ -83,7 +85,9 @@ int main(int argc, char **argv)
     auto c = engine.rootContext();
     QQuickStyle::setStyle("Fusion");
     c->setContextProperty("CppUpdater", updater);
+    c->setContextProperty("CppUtilities", &utilities);
     c->setContextProperty("CppTranslator", &translator);
+    c->setContextProperty("CppAppIcon", "qrc" APP_ICON);
     c->setContextProperty("CppAppName", app.applicationName());
     c->setContextProperty("CppAppUpdaterUrl", APP_UPDATER_URL);
     c->setContextProperty("CppAppVersion", app.applicationVersion());

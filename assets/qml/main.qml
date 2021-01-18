@@ -61,6 +61,23 @@ ApplicationWindow {
     }
 
     //
+    // Set fusion palette colors
+    //
+    palette.base: "#191919"
+    palette.text: "#ffffff"
+    palette.link: "#2a82da"
+    palette.button: "#353535"
+    palette.window: "#252525"
+    palette.highlight: "#2a82da"
+    palette.buttonText: "#ffffff"
+    palette.brightText: "#ff0000"
+    palette.windowText: "#ffffff"
+    palette.toolTipBase: "#ffffff"
+    palette.toolTipText: "#ffffff"
+    palette.alternateBase: "#353535"
+    palette.highlightedText: "#000000"
+
+    //
     // Window geometry
     //
     visible: false

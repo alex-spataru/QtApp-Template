@@ -86,9 +86,11 @@ RESOURCES += \
 
 HEADERS += \
     src/AppInfo.h \
-    src/Translator.h
+    src/Translator.h \
+    src/Utilities.h
 
 SOURCES += \
+    src/Utilities.cpp \
     src/main.cpp \
     src/Translator.cpp
 

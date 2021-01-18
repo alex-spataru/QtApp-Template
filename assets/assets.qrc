@@ -12,5 +12,6 @@
         <file>icons/update.svg</file>
         <file>icons/website.svg</file>
         <file>images/Qt.svg</file>
+        <file>icons/bug.svg</file>
     </qresource>
 </RCC>
