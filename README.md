@@ -9,8 +9,8 @@
 A simple template for Qt apps with the following features:
 
 - Code for displaying a QtQuick [`ApplicationWindow`](https://doc.qt.io/qt-5/qml-qtquick-controls2-applicationwindow.html).
-- Automated builds for Windows, macOS & GNU/Linux.
-- Issue templates.
+- Automated [builds & artifact upload](https://github.com/alex-spataru/QtApp-Template/actions) for Windows, macOS & GNU/Linux.
+- Comes with [issue templates](https://github.com/alex-spataru/QtApp-Template/issues/new/choose).
 - [Code of conduct](CODE_OF_CONDUCT.md) file.
 - Translation [template](assets/translations) files & [code](src/Translator.h).
 - Deploy configuration for [Windows](deploy/windows), [macOS](deploy/macOS) & [GNU/Linux](deploy/linux).
