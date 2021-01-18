@@ -37,17 +37,18 @@ For more information, check the [`Build.yml`](.github/workflows/Build.yml) file.
 
 **Note:** If you need to use OpenSSL for your projects, you will need to add it yourself (or make a pull-request, because I want to automate that and I still haven't done that).
 
-## Modifying the project to suit your needs
+## Modifying this project to suit your needs
 
-1. Remove my email & add yours in the [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) file (I don't want to deal with your toxic users).
-1. Change to your preferred license (mine's is [MIT](https://opensource.org/licenses/MIT)).
-2. Rename the [`QtApp.pro`](QtApp.pro) file & change `TARGET` value.
-3. Modify contents of [`AppInfo.h`](https://github.com/alex-spataru/QtApp-Template/blob/master/src/AppInfo.h).
-4. Change [`info.plist`](deploy/macOS/info.plist).
-5. Rename & change [`qt-app.desktop`](deploy/linux/qt-app.desktop).
-6. Change [`setup.nsi`](deploy/windows/nsis/setup.nsi).
-7. Modify env. variables of [`Build.yml`](.github/workflows/Build.yml).
-8. Hack on...
+1. Clone/download this repo.
+2. Remove my email & add yours in the [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) file (I don't want to deal with your toxic users).
+3. Change to your preferred license (mine's is [MIT](https://opensource.org/licenses/MIT)).
+4. Rename the [`QtApp.pro`](QtApp.pro) file & change `TARGET` value.
+5. Modify contents of [`AppInfo.h`](https://github.com/alex-spataru/QtApp-Template/blob/master/src/AppInfo.h).
+6. Change [`info.plist`](deploy/macOS/info.plist).
+7. Rename & change [`qt-app.desktop`](deploy/linux/qt-app.desktop).
+8. Change [`setup.nsi`](deploy/windows/nsis/setup.nsi).
+9. Modify env. variables of [`Build.yml`](.github/workflows/Build.yml).
+10. Hack on...
 
 ## Default licence
 
