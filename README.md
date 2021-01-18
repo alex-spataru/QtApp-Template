@@ -39,7 +39,7 @@ This projects uses [GitHub actions](https://github.com/features/actions) to auto
 
 For more information, check the [`Build.yml`](.github/workflows/Build.yml) file.
 
-**Note:** If you need to use OpenSSL for your projects, you will need to add it yourself (or make a pull-request, because I want to automate that and I still haven't done that).
+**Note:** If you need to use OpenSSL for your projects, you will need to add it yourself (or make a pull-request, because I want to automate this and I still haven't done that).
 
 ## Modifying this project to suit your needs
 
