@@ -17,7 +17,7 @@ A simple template for Qt apps with the following features:
 - [NSIS installer](deploy/windows/nsis/setup.nsi) for Windows.
 - Save window size, position & maximize status automatically.
 - Load [`UI.qml`](assets/qml/UI.qml) asynchronously (to keep [`main.qml`](assets/qml/main.qml) small).
-- Integration with [QSimpleUpdater](https://github.com/alex-spataru/QSimpleUpdater) & [CuteLogger](https://github.com/dept2/CuteLogger).
+- Integration with [QSimpleUpdater](https://github.com/alex-spataru/QSimpleUpdater) & modified [CuteLogger](https://github.com/alex-spataru/CuteLogger).
 - `clang-format` integration.
 - `.gitignore` file for Qt projects
 
