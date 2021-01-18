@@ -20,7 +20,10 @@ Page {
                 Layout.fillHeight: true
                 icon.source: "qrc:/icons/update.svg"
                 text: qsTr("Check for updates") + CppTranslator.dummy
-                onClicked: CppUpdater.checkForUpdates(CppAppUpdaterUrl)
+                onClicked: {
+                    CppUpdater.setNotifyOnFinish(CppAppUpdaterUrl, true)
+                    CppUpdater.checkForUpdates(CppAppUpdaterUrl)
+                }
             }
         }
     }
