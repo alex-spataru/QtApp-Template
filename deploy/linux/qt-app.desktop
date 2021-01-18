@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Qt App
+Comment=Awesome Qt App
+Exec=qt-app
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Programming;
+Icon=qt-app

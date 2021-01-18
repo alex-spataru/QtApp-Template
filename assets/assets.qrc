@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/UI.qml</file>
+        <file>translations/en.qm</file>
+        <file>translations/en.ts</file>
+        <file>translations/es.qm</file>
+        <file>translations/es.ts</file>
+        <file>translations/zh.qm</file>
+        <file>translations/zh.ts</file>
+        <file>icons/close.svg</file>
+        <file>icons/update.svg</file>
+        <file>icons/website.svg</file>
+        <file>images/Qt.svg</file>
+    </qresource>
+</RCC>

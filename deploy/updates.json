@@ -1,0 +1,25 @@
+{
+   "updates":{
+      "windows":{
+         "open-url":"https://github.com/alex-spataru/QtApp-Template/releases",
+         "latest-version":"1.0.0",
+         "download-url":"",
+         "changelog":"",
+         "mandatory":false
+      },
+      "osx":{
+         "open-url":"https://github.com/alex-spataru/QtApp-Template/releases",
+         "latest-version":"1.0.0",
+         "download-url":"",
+         "changelog":"",
+         "mandatory":false
+      },
+      "linux":{
+         "open-url":"https://github.com/alex-spataru/QtApp-Template/releases",
+         "latest-version":"1.0.0",
+         "download-url":"",
+         "changelog":"",
+         "mandatory":false
+      }
+   }
+}
