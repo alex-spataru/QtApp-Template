@@ -5,12 +5,7 @@
 name: Build
 on:
   push:               # Run on push
-    paths-ignore:     # File patterns to ignore
-    - '**.md'         # Ignore changes to *.md files
-    
   pull_request:       # Run on pull-request
-    paths-ignore:     # File-patterns to ignore
-    - '**.md'         # Ignore changes to *.md files
 
 #--------------------------------------------------------------------------------
 # Define application name & version
