@@ -26,7 +26,7 @@ A simple template for Qt apps with the following features:
 ## Modifying to suit your needs
 
 1. Change to your preferred license.
-2. Change the target & name of `*.pro` file.
+2. Change the target & name of [`QtApp.pro`](QtApp.pro) file.
 3. Change [`info.plist`](deploy/macOS/info.plist).
 4. Rename & change [`qt-app.desktop`](deploy/linux/qt-app.desktop).
 5. Change [`setup.nsi`](deploy/windows/nsis/setup.nsi).
