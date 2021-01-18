@@ -23,7 +23,7 @@ A simple template for Qt apps with the following features:
 
 **Note:** this repo does not make use of sub-modules because I modified CuteLogger to be able to compile directly with the application.
 
-I made this repo to stop loosing time when I need to create a new project, it may or may not be updated frequently. If this project helped you, star this repository to make it more visible to other Qt developers. Contributions welcome :)
+I made this repo to stop wasting time when I need to create a new project, it may or may not be updated frequently. If this project helped you, star this repository to make it more visible to other Qt developers. Contributions welcome :)
 
 ## Screenshot of UI & features
 
