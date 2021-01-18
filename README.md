@@ -25,6 +25,10 @@ A simple template for Qt apps with the following features:
 
 I made this repo to stop loosing time when I need to create a new project, it may or may not be updated frequently. If this project helped you, star this repository to make it more visible to other Qt developers. Contributions welcome :)
 
+## Screenshot of UI & features
+
+![Screenshot](doc/screenshot.png)
+
 ## Automated build & deployment with GitHub actions
 
 This projects uses [GitHub actions](https://github.com/features/actions) to automatically build & deploy binaries/installers for all major desktop platforms (Windows, macOS & GNU/Linux). The deployed files are:
