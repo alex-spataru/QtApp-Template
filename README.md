@@ -23,18 +23,19 @@ A simple template for Qt apps with the following features:
 
 **Note:** this repo does not make use of sub-modules because I modified CuteLogger to be able to compile directly with the application.
 
-## Modifying to suit your needs
+I made this repo to stop loosing time when I need to create a new project, it may or may not be updated frequently. If this project helped you, star this repository to make it more visible to other Qt developers. Contributions welcome :)
+
+## Modifying the project to suit your needs
 
 1. Change to your preferred license.
-2. Change the target & name of [`QtApp.pro`](QtApp.pro) file.
-3. Change [`info.plist`](deploy/macOS/info.plist).
-4. Rename & change [`qt-app.desktop`](deploy/linux/qt-app.desktop).
-5. Change [`setup.nsi`](deploy/windows/nsis/setup.nsi).
-5. Modify env. variables of [`Build.yml`](.github/workflows/Build.yml).
-6. Hack on...
+2. Rename the [`QtApp.pro`](QtApp.pro) file & change `TARGET` value.
+3. Modify contents of [`AppInfo.h`](https://github.com/alex-spataru/QtApp-Template/blob/master/src/AppInfo.h).
+4. Change [`info.plist`](deploy/macOS/info.plist).
+5. Rename & change [`qt-app.desktop`](deploy/linux/qt-app.desktop).
+6. Change [`setup.nsi`](deploy/windows/nsis/setup.nsi).
+7. Modify env. variables of [`Build.yml`](.github/workflows/Build.yml).
+8. Hack on...
 
 ## Default licence
 
-This repository is comes by default with the [MIT License](LICENSE.md). You can change it for your own needs. You are welcome to star this repository to make it more visible to other Qt developers. Contributions welcome :)
-
-
+This repository is comes by default with the [MIT License](LICENSE.md). You can change it for your own needs, I won't hold a grunge against you if you need a propietary license.
