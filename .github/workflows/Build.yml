@@ -18,6 +18,7 @@ env:
   QMAKE_PROJECT: "QtApp.pro"
   QML_DIR_NIX: "assets/qml"
   QML_DIR_WIN: "assets\\qml"
+  QT_DOWNLOAD_MIRROR: http://mirrors.ocf.berkeley.edu/qt/
 
 #--------------------------------------------------------------------------------
 # Workflow jobs (GNU/Linux, macOS & Windows)
@@ -39,10 +40,24 @@ jobs:
           submodules: recursive
 
       #
+      # Cache Qt
+      #
+      - name: Cache Qt
+        id: cache-qt
+        uses: actions/cache@v1
+        with:
+          path: ../Qt
+          key: ${{runner.os}}-QtCache
+
+      #
       # Install Qt
       #
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
+        with:
+          modules: qtcharts
+          mirror: ${{env.QT_DOWNLOAD_MIRROR}}
+          cached: ${{steps.cache-qt.outputs.cache-hit}}
           
       #
       # Install additional dependencies, stolen from:
@@ -69,7 +84,7 @@ jobs:
              make INSTALL_ROOT=appdir install
              wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage" -O linuxdeployqt
              chmod a+x linuxdeployqt
-             ./linuxdeployqt appdir/usr/share/applications/*.desktop -appimage -bundle-non-qt-libs -extra-plugins=imageformats/libqsvg.so -qmldir="${{env.QML_DIR_NIX}}"
+             ./linuxdeployqt appdir/usr/share/applications/*.desktop -appimage -qmldir="${{env.QML_DIR_NIX}}"
      
       #
       # Rename AppImage to match "%AppName%-%Version%-Linux.AppImage" format
@@ -101,10 +116,24 @@ jobs:
           submodules: recursive
 
       #
+      # Cache Qt
+      #
+      - name: Cache Qt
+        id: cache-qt
+        uses: actions/cache@v1
+        with:
+          path: ../Qt
+          key: ${{runner.os}}-QtCache
+
+      #
       # Install Qt
       #
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
+        with:
+          modules: qtcharts
+          mirror: ${{env.QT_DOWNLOAD_MIRROR}}
+          cached: ${{steps.cache-qt.outputs.cache-hit}}
       
       #
       # Compile application
@@ -163,10 +192,24 @@ jobs:
           spectre: true
 
       #
+      # Cache Qt
+      #
+      - name: Cache Qt
+        id: cache-qt
+        uses: actions/cache@v1
+        with:
+          path: ../Qt
+          key: ${{runner.os}}-QtCache
+
+      #
       # Install Qt
       #
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
+        with:
+          modules: qtcharts
+          mirror: ${{env.QT_DOWNLOAD_MIRROR}}
+          cached: ${{steps.cache-qt.outputs.cache-hit}}
           
       #
       # Install NSIS
@@ -186,7 +229,7 @@ jobs:
              nmake
              
       #
-      # Copy Qt DLLs, compiler runtime & application icon
+      # Copy Qt & OpenSSL DLLs, compiler runtime & application icon
       #       
       - name: Deploy
         run: |
