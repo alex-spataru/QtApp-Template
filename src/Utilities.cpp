@@ -35,8 +35,7 @@
 /**
  * Shows a macOS-like message box with the given properties
  */
-int Utilities::showMessageBox(QString text, QString informativeText,
-                              QString windowTitle,
+int Utilities::showMessageBox(QString text, QString informativeText, QString windowTitle,
                               QMessageBox::StandardButtons bt)
 {
     // Get app icon
