@@ -37,6 +37,10 @@
 #include <Misc/Utilities.h>
 #include <Misc/Translator.h>
 
+#ifdef Q_OS_WIN
+#    include <windows.h>
+#endif
+
 /**
  * @brief Entry-point function of the application
  *
