@@ -39,9 +39,6 @@ class Translator : public QObject
                READ language
                WRITE setLanguage
                NOTIFY languageChanged)
-    Q_PROPERTY(QString dummy
-               READ dummyString
-               NOTIFY languageChanged)
     Q_PROPERTY(QStringList availableLanguages
                READ availableLanguages
                CONSTANT)
@@ -55,7 +52,6 @@ public:
 
     int language() const;
     int systemLanguage() const;
-    QString dummyString() const;
     QStringList availableLanguages() const;
 
 public slots:

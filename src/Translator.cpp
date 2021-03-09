@@ -70,21 +70,6 @@ int Translator::systemLanguage() const
 }
 
 /**
- * Returns an empty string, this function should be used with QML to
- * automatically update all the strings without the need of restarting the
- * application. For example, the following QML code:
- *
- *      text: qsTr("Text") + CppTranslator.dummyString
- *
- * Will force the QML interface to update the value of @a text when the language
- * is changed.
- */
-QString Translator::dummyString() const
-{
-    return "";
-}
-
-/**
  * Returns a list with the available translation languages.
  */
 QStringList Translator::availableLanguages() const

@@ -78,6 +78,10 @@ int main(int argc, char **argv)
     QQmlApplicationEngine engine;
     auto updater = QSimpleUpdater::getInstance();
 
+    // Automatically re-translate UI
+    QObject::connect(&translator, &Translator::languageChanged, &engine,
+                     &QQmlApplicationEngine::retranslate);
+
     // Log status
     LOG_INFO() << "Finished creating application modules";
 

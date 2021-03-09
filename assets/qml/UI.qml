@@ -47,7 +47,7 @@ Page {
                 Layout.fillHeight: true
                 icon.color: palette.text
                 icon.source: "qrc:/icons/update.svg"
-                text: qsTr("Check for updates") + CppTranslator.dummy
+                text: qsTr("Check for updates")
                 onClicked: {
                     CppUpdater.setNotifyOnFinish(CppAppUpdaterUrl, true)
                     CppUpdater.checkForUpdates(CppAppUpdaterUrl)
@@ -62,7 +62,7 @@ Page {
                 icon.color: palette.text
                 icon.source: "qrc:/icons/bug.svg"
                 onClicked: CppUtilities.openLogFile()
-                text: qsTr("Application log") + CppTranslator.dummy
+                text: qsTr("Application log")
             }
 
             Item {
@@ -71,7 +71,7 @@ Page {
 
             Label {
                 Layout.alignment: Qt.AlignVCenter
-                text: qsTr("Language") + ":" + CppTranslator.dummy
+                text: qsTr("Language") + ":"
             }
 
             ComboBox {
@@ -110,13 +110,13 @@ Page {
             font.bold: true
             font.pixelSize: 24
             Layout.alignment: Qt.AlignHCenter
-            text: qsTr("Hello World") + CppTranslator.dummy
+            text: qsTr("Hello World")
         }
 
         Label {
             font.pixelSize: 18
             Layout.alignment: Qt.AlignHCenter
-            text: qsTr("Click on any button") + CppTranslator.dummy
+            text: qsTr("Click on any button")
         }
 
         Item {
@@ -128,7 +128,7 @@ Page {
             Layout.minimumWidth: 156
             Layout.alignment: Qt.AlignHCenter
             icon.source: "qrc:/icons/close.svg"
-            text: qsTr("Close") + CppTranslator.dummy
+            text: qsTr("Close")
             onClicked: app.close()
         }
 
@@ -137,7 +137,7 @@ Page {
             Layout.minimumWidth: 156
             Layout.alignment: Qt.AlignHCenter
             icon.source: "qrc:/icons/website.svg"
-            text: qsTr("Visit website") + CppTranslator.dummy
+            text: qsTr("Visit website")
             onClicked: Qt.openUrlExternally(CppAppOrganizationDomain)
         }
     }
