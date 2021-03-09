@@ -16,6 +16,7 @@ A simple template for Qt apps with the following features:
 - Deploy configuration for [Windows](deploy/windows), [macOS](deploy/macOS) & [GNU/Linux](deploy/linux).
 - [NSIS installer](deploy/windows/nsis/setup.nsi) for Windows.
 - Save window size, position & maximize status automatically.
+- Display CLI output data on Windows if the application is called from the command line.
 - Load [`UI.qml`](assets/qml/UI.qml) asynchronously (to keep [`main.qml`](assets/qml/main.qml) small).
 - Integration with [QSimpleUpdater](https://github.com/alex-spataru/QSimpleUpdater) & modified [CuteLogger](https://github.com/alex-spataru/CuteLogger).
 - `clang-format` integration.
