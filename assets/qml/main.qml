@@ -101,61 +101,49 @@ ApplicationWindow {
     palette.window: app.windowBackgroundColor
 
     //
-    // Display the window & check for updates in 500 ms (we do this so that
-    // we wait for the window to read settings before showing it)
+    // Load window position from settings & show window
     //
-    Component.onCompleted: {
-        timer.start()
-    }
+    function displayWindow() {
+        // Startup verifications to ensure that bad settings
+        // do not make our app reside outside screen
+        if (x < 0 || x >= Screen.desktopAvailableWidth)
+            x = 100
+        if (y < 0 || y >= Screen.desktopAvailableHeight)
+            y = 100
 
-    //
-    // Startup timer
-    //
-    Timer {
-        id: timer
-        interval: 500
-        onTriggered: {
-            // Startup verifications to ensure that bad settings
-            // do not make our app reside outside screen
-            if (x < 0 || x >= Screen.desktopAvailableWidth)
-                x = 100
-            if (y < 0 || y >= Screen.desktopAvailableHeight)
-                y = 100
-
-            // Startup verifications to ensure that app fits in current screen
-            if (width > Screen.desktopAvailableWidth) {
-                x = 100
-                width = Screen.desktopAvailableWidth - x
-            }
-
-            // Startup verifications to ensure that app fits in current screen
-            if (height > Screen.desktopAvailableHeight) {
-                y = 100
-                height = Screen.desktopAvailableHeight - y
-            }
-
-            // Show app window
-            if (app.windowMaximized)
-                app.showMaximized()
-            else
-                app.showNormal()
-
-            // Increment app launch count until 3:
-            // Value & meaning:
-            // - 1: first launch
-            // - 2: second launch, ask to enable automatic updater
-            // - 3: we don't care the number of times the user launched the app
-            if (appLaunchStatus < 3)
-                ++appLaunchStatus
-
-            // Second launch ask user if he/she wants to enable automatic updates
-            if (appLaunchStatus == 2)
-                automaticUpdatesMessageDialog.visible = true
-
-            // Check for updates (if we are allowed)
-            if (automaticUpdates)
-                Cpp_Updater.checkForUpdates(Cpp_AppUpdaterUrl)
+        // Startup verifications to ensure that app fits in current screen
+        if (width > Screen.desktopAvailableWidth) {
+            x = 100
+            width = Screen.desktopAvailableWidth - x
         }
+
+        // Startup verifications to ensure that app fits in current screen
+        if (height > Screen.desktopAvailableHeight) {
+            y = 100
+            height = Screen.desktopAvailableHeight - y
+        }
+
+        // Show app window
+        if (app.windowMaximized)
+            app.showMaximized()
+        else
+            app.showNormal()
+
+        // Increment app launch count until 3:
+        // Value & meaning:
+        // - 1: first launch
+        // - 2: second launch, ask to enable automatic updater
+        // - 3: we don't care the number of times the user launched the app
+        if (appLaunchStatus < 3)
+            ++appLaunchStatus
+
+        // Second launch ask user if he/she wants to enable automatic updates
+        if (appLaunchStatus == 2)
+            automaticUpdatesMessageDialog.visible = true
+
+        // Check for updates (if we are allowed)
+        if (automaticUpdates)
+            Cpp_Updater.checkForUpdates(Cpp_AppUpdaterUrl)
     }
 
     //
@@ -207,7 +195,10 @@ ApplicationWindow {
         anchors.fill: parent
         sourceComponent: UI {
             anchors.fill: parent
-            Component.onCompleted: app.ui = this
+            Component.onCompleted: {
+                app.ui = this
+                app.displayWindow()
+            }
         }
     }
 }
