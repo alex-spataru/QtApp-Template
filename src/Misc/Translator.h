@@ -20,8 +20,8 @@
  * THE SOFTWARE.
  */
 
-#ifndef TRANSLATOR_H
-#define TRANSLATOR_H
+#ifndef MISC_TRANSLATOR_H
+#define MISC_TRANSLATOR_H
 
 #include <QLocale>
 #include <QObject>
@@ -31,6 +31,8 @@
 #    include <QtQml>
 #endif
 
+namespace Misc
+{
 class Translator : public QObject
 {
     // clang-format off
@@ -47,8 +49,11 @@ class Translator : public QObject
 signals:
     void languageChanged();
 
+private:
+    Translator();
+
 public:
-    explicit Translator();
+    static Translator *getInstance();
 
     int language() const;
     int systemLanguage() const;
@@ -62,5 +67,6 @@ private:
     int m_language;
     QTranslator m_translator;
 };
+}
 
 #endif

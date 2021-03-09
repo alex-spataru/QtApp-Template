@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Alex Spataru <https://github.com/alex-spataru>
+ * Copyright (c) 2020-2021 Alex Spataru <https://github.com/alex-spataru>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,28 +20,34 @@
  * THE SOFTWARE.
  */
 
-#ifndef UTILITIES_H
-#define UTILITIES_H
+#ifndef MISC_UTILITIES_H
+#define MISC_UTILITIES_H
 
 #include <QObject>
 #include <QMessageBox>
 #include <QApplication>
 
+namespace Misc
+{
 class Utilities : public QObject
 {
     Q_OBJECT
 
 public:
     // clang-format off
-    Q_INVOKABLE int showMessageBox(QString text,
-                                   QString informativeText,
-                                   QString windowTitle = qAppName(),
-                                   QMessageBox::StandardButtons bt = QMessageBox::Ok);
+    static Utilities* getInstance();
+    static int showMessageBox(QString text,
+                              QString informativeText,
+                              QString windowTitle = qAppName(),
+                              QMessageBox::StandardButtons bt = QMessageBox::Ok);
     //clang-format on
 
 public slots:
-    void openLogFile();
-    void revealFile(const QString& pathToReveal);
+    static void aboutQt();
+    static void openLogFile();
+    static void configureDarkUi();
+    static void revealFile(const QString& pathToReveal);
 };
+}
 
 #endif

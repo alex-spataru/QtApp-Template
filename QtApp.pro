@@ -81,18 +81,10 @@ linux:!android {
 # Import source code
 #-------------------------------------------------------------------------------
 
+INCLUDEPATH += $$PWD/src
+
 RESOURCES += \
     assets/assets.qrc
-
-HEADERS += \
-    src/AppInfo.h \
-    src/Translator.h \
-    src/Utilities.h
-
-SOURCES += \
-    src/Utilities.cpp \
-    src/main.cpp \
-    src/Translator.cpp
 
 DISTFILES += \
     assets/qml/*.qml
@@ -101,3 +93,13 @@ TRANSLATIONS += \
     assets/translations/en.ts \
     assets/translations/es.ts \
     assets/translations/zh.ts
+
+HEADERS += \
+    src/AppInfo.h \
+    src/Misc/Utilities.h \
+    src/Misc/Translator.h
+
+SOURCES += \
+    src/Misc/Utilities.cpp \
+    src/Misc/Translator.cpp \
+    src/main.cpp

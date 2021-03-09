@@ -20,9 +20,17 @@
  * THE SOFTWARE.
  */
 
-#include "Logger.h"
 #include "Translator.h"
-#include "ConsoleAppender.h"
+
+#include <Logger.h>
+#include <ConsoleAppender.h>
+
+using namespace Misc;
+
+/**
+ * Only instance of the class
+ */
+static Translator *INSTANCE = nullptr;
 
 /**
  * Constructor function
@@ -30,8 +38,19 @@
 Translator::Translator()
 {
     m_language = systemLanguage();
-    LOG_INFO() << "Initialized Translator module";
-    LOG_INFO() << "System language" << systemLanguage();
+    LOG_TRACE() << "Class initialized";
+    LOG_TRACE() << "System language" << systemLanguage();
+}
+
+/**
+ * Returns the only instance of the class
+ */
+Translator *Translator::getInstance()
+{
+    if (!INSTANCE)
+        INSTANCE = new Translator;
+
+    return INSTANCE;
 }
 
 /**
@@ -60,6 +79,9 @@ int Translator::systemLanguage() const
             break;
         case QLocale::Chinese:
             lang = 2;
+            break;
+        case QLocale::German:
+            lang = 3;
             break;
         default:
             lang = 0;
@@ -127,5 +149,5 @@ void Translator::setLanguage(const QLocale &locale, const QString &language)
     qApp->installTranslator(&m_translator);
     emit languageChanged();
 
-    LOG_INFO() << "Language set to" << language;
+    LOG_TRACE() << "Language set to" << language;
 }

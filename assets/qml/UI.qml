@@ -1,3 +1,25 @@
+/*
+ * Copyright (c) 2020-2021 Alex Spataru <https://github.com/alex-spataru>
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
 import QtQuick 2.12
 import QtQuick.Dialogs 1.1
 import QtQuick.Layouts 1.12
@@ -49,8 +71,8 @@ Page {
                 icon.source: "qrc:/icons/update.svg"
                 text: qsTr("Check for updates")
                 onClicked: {
-                    CppUpdater.setNotifyOnFinish(CppAppUpdaterUrl, true)
-                    CppUpdater.checkForUpdates(CppAppUpdaterUrl)
+                    Cpp_Updater.setNotifyOnFinish(Cpp_AppUpdaterUrl, true)
+                    Cpp_Updater.checkForUpdates(Cpp_AppUpdaterUrl)
                 }
             }
 
@@ -61,8 +83,8 @@ Page {
                 Layout.fillHeight: true
                 icon.color: palette.text
                 icon.source: "qrc:/icons/bug.svg"
-                onClicked: CppUtilities.openLogFile()
                 text: qsTr("Application log")
+                onClicked: Cpp_Misc_Utilities.openLogFile()
             }
 
             Item {
@@ -76,8 +98,8 @@ Page {
 
             ComboBox {
                 Layout.alignment: Qt.AlignVCenter
-                model: CppTranslator.availableLanguages
-                onCurrentIndexChanged: CppTranslator.setLanguage(currentIndex)
+                model: Cpp_Misc_Translator.availableLanguages
+                onCurrentIndexChanged: Cpp_Misc_Translator.setLanguage(currentIndex)
             }
         }
     }
@@ -97,7 +119,7 @@ Page {
         anchors.centerIn: parent
 
         Image {
-            source: CppAppIcon
+            source: Cpp_AppIcon
             sourceSize: Qt.size(256, 188)
             Layout.alignment: Qt.AlignHCenter
         }
@@ -138,7 +160,7 @@ Page {
             Layout.alignment: Qt.AlignHCenter
             icon.source: "qrc:/icons/website.svg"
             text: qsTr("Visit website")
-            onClicked: Qt.openUrlExternally(CppAppOrganizationDomain)
+            onClicked: Qt.openUrlExternally(Cpp_AppOrganizationDomain)
         }
     }
 }

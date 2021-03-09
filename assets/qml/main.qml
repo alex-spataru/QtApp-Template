@@ -1,3 +1,25 @@
+/*
+ * Copyright (c) 2020-2021 Alex Spataru <https://github.com/alex-spataru>
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
 import QtQuick 2.12
 import QtQuick.Dialogs 1.1
 import QtQuick.Window 2.12
@@ -61,29 +83,19 @@ ApplicationWindow {
     }
 
     //
-    // Set fusion palette colors
-    //
-    palette.base: "#191919"
-    palette.text: "#ffffff"
-    palette.link: "#2a82da"
-    palette.button: "#353535"
-    palette.window: "#252525"
-    palette.highlight: "#2a82da"
-    palette.buttonText: "#ffffff"
-    palette.brightText: "#ff0000"
-    palette.windowText: "#ffffff"
-    palette.toolTipBase: "#ffffff"
-    palette.toolTipText: "#ffffff"
-    palette.alternateBase: "#353535"
-    palette.highlightedText: "#000000"
-
-    //
     // Window geometry
     //
     visible: false
     minimumWidth: 800
     minimumHeight: 600
-    title: CppAppName + " v" + CppAppVersion
+    title: Cpp_AppName + " v" + Cpp_AppVersion
+
+    //
+    // Fusion palette hacks (I don't know why these specefic values are ignored from the
+    // C++ generated palette)
+    //
+    palette.base: "#191919"
+    palette.buttonText: "#ffffff"
 
     //
     // Display the window & check for updates in 500 ms (we do this so that
@@ -139,7 +151,7 @@ ApplicationWindow {
 
             // Check for updates (if we are allowed)
             if (automaticUpdates)
-                CppUpdater.checkForUpdates(CppAppUpdaterUrl)
+                Cpp_Updater.checkForUpdates(Cpp_AppUpdaterUrl)
         }
     }
 
@@ -162,19 +174,19 @@ ApplicationWindow {
     MessageDialog {
         id: automaticUpdatesMessageDialog
 
-        title: CppAppName
+        title: Cpp_AppName
         icon: StandardIcon.Question
         modality: Qt.ApplicationModal
         standardButtons: StandardButton.Yes | StandardButton.No
         text: "<h3>" + qsTr("Check for updates automatically?") + "</h3>"
         informativeText: qsTr("Should %1 automatically check for updates? " +
                               "You can always check for updates manually from " +
-                              "the \"About\" dialog").arg(CppAppName);
+                              "the \"About\" dialog").arg(Cpp_AppName);
 
         // Behavior when the user clicks on "Yes"
         onAccepted: {
             app.automaticUpdates = true
-            CppUpdater.checkForUpdates(CppAppUpdaterUrl)
+            Cpp_Updater.checkForUpdates(Cpp_AppUpdaterUrl)
         }
 
         // Behavior when the user clicks on "No"

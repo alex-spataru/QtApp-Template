@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Alex Spataru <https://github.com/alex-spataru>
+ * Copyright (c) 2020-2021 Alex Spataru <https://github.com/alex-spataru>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,17 +20,34 @@
  * THE SOFTWARE.
  */
 
-#include "AppInfo.h"
 #include "Utilities.h"
 
 #include <QDir>
 #include <QUrl>
+#include <QPalette>
 #include <QProcess>
 #include <QFileInfo>
+#include <QQuickStyle>
 #include <QMessageBox>
 #include <QApplication>
-#include <QJsonDocument>
+#include <QStyleFactory>
 #include <QDesktopServices>
+
+#include <AppInfo.h>
+
+using namespace Misc;
+
+/**
+ * Returns the onlt instance of the class, this is to be used by the QML interface
+ */
+static Utilities *INSTANCE = nullptr;
+Utilities *Utilities::getInstance()
+{
+    if (!INSTANCE)
+        INSTANCE = new Utilities;
+
+    return INSTANCE;
+}
 
 /**
  * Shows a macOS-like message box with the given properties
@@ -55,11 +72,47 @@ int Utilities::showMessageBox(QString text, QString informativeText, QString win
 }
 
 /**
+ * Displays the about Qt dialog
+ */
+void Utilities::aboutQt()
+{
+    qApp->aboutQt();
+}
+
+/**
  * Displays the location of the current log file in the Finder window
  */
 void Utilities::openLogFile()
 {
     revealFile(LOG_FILE);
+}
+
+/**
+ * Changes the application palette so that a dark UI can be displayed
+ */
+void Utilities::configureDarkUi()
+{
+    qApp->setStyle(QStyleFactory::create("Fusion"));
+    QQuickStyle::setStyle("Fusion");
+
+    // clang-format off
+    QPalette palette;
+    palette.setColor(QPalette::Base,            QColor("#191919"));
+    palette.setColor(QPalette::Link,            QColor("#2a82da"));
+    palette.setColor(QPalette::Button,          QColor("#353535"));
+    palette.setColor(QPalette::Window,          QColor("#252525"));
+    palette.setColor(QPalette::Text,            QColor("#ffffff"));
+    palette.setColor(QPalette::Midlight,        QColor("#2a82da"));
+    palette.setColor(QPalette::Highlight,       QColor("#2a82da"));
+    palette.setColor(QPalette::BrightText,      QColor("#ff0000"));
+    palette.setColor(QPalette::ButtonText,      QColor("#ffffff"));
+    palette.setColor(QPalette::WindowText,      QColor("#ffffff"));
+    palette.setColor(QPalette::ToolTipBase,     QColor("#ffffff"));
+    palette.setColor(QPalette::ToolTipText,     QColor("#ffffff"));
+    palette.setColor(QPalette::AlternateBase,   QColor("#353535"));
+    palette.setColor(QPalette::HighlightedText, QColor("#000000"));
+    qApp->setPalette(palette);
+    // clang-format on
 }
 
 /**

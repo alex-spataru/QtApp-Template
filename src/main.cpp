@@ -33,9 +33,9 @@
 
 #include <QSimpleUpdater.h>
 
-#include "AppInfo.h"
-#include "Utilities.h"
-#include "Translator.h"
+#include <AppInfo.h>
+#include <Misc/Utilities.h>
+#include <Misc/Translator.h>
 
 /**
  * @brief Entry-point function of the application
@@ -47,6 +47,20 @@
  */
 int main(int argc, char **argv)
 {
+    // Fix console output on Windows (https://stackoverflow.com/a/41701133)
+    // This code will only execute if the application is started from the comamnd prompt
+#ifdef _WIN32
+    if (AttachConsole(ATTACH_PARENT_PROCESS))
+    {
+        // Open the console's active buffer
+        (void)freopen("CONOUT$", "w", stdout);
+        (void)freopen("CONOUT$", "w", stderr);
+
+        // Force print new-line (to avoid printing text over user commands)
+        printf("\n");
+    }
+#endif
+
     // Set application attributes
     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
@@ -73,13 +87,16 @@ int main(int argc, char **argv)
     LOG_INFO() << "Running on" << QSysInfo::prettyProductName().toStdString().c_str();
 
     // Init application modules
-    Utilities utilities;
-    Translator translator;
     QQmlApplicationEngine engine;
     auto updater = QSimpleUpdater::getInstance();
+    auto utilities = Misc::Utilities::getInstance();
+    auto translator = Misc::Translator::getInstance();
+
+    // Configure dark UI
+    Misc::Utilities::configureDarkUi();
 
     // Automatically re-translate UI
-    QObject::connect(&translator, &Translator::languageChanged, &engine,
+    QObject::connect(translator, &Misc::Translator::languageChanged, &engine,
                      &QQmlApplicationEngine::retranslate);
 
     // Log status
@@ -88,15 +105,15 @@ int main(int argc, char **argv)
     // Init QML interface
     auto c = engine.rootContext();
     QQuickStyle::setStyle("Fusion");
-    c->setContextProperty("CppUpdater", updater);
-    c->setContextProperty("CppUtilities", &utilities);
-    c->setContextProperty("CppTranslator", &translator);
-    c->setContextProperty("CppAppIcon", "qrc" APP_ICON);
-    c->setContextProperty("CppAppName", app.applicationName());
-    c->setContextProperty("CppAppUpdaterUrl", APP_UPDATER_URL);
-    c->setContextProperty("CppAppVersion", app.applicationVersion());
-    c->setContextProperty("CppAppOrganization", app.organizationName());
-    c->setContextProperty("CppAppOrganizationDomain", app.organizationDomain());
+    c->setContextProperty("Cpp_Updater", updater);
+    c->setContextProperty("Cpp_Misc_Utilities", utilities);
+    c->setContextProperty("Cpp_Misc_Translator", translator);
+    c->setContextProperty("Cpp_AppIcon", "qrc" APP_ICON);
+    c->setContextProperty("Cpp_AppName", app.applicationName());
+    c->setContextProperty("Cpp_AppUpdaterUrl", APP_UPDATER_URL);
+    c->setContextProperty("Cpp_AppVersion", app.applicationVersion());
+    c->setContextProperty("Cpp_AppOrganization", app.organizationName());
+    c->setContextProperty("Cpp_AppOrganizationDomain", app.organizationDomain());
     engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
 
     // Log QML engine status
