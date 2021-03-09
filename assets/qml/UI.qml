@@ -39,18 +39,18 @@ Page {
         //
         Rectangle {
             border.width: 1
-            border.color: palette.alternateBase
+            border.color: palette.midlight
+
+            gradient: Gradient {
+                GradientStop { position: 0; color: "#21373f" }
+                GradientStop { position: 1; color: "#11272f" }
+            }
 
             anchors {
                 fill: parent
                 topMargin: -border.width
                 leftMargin: -border.width * 10
                 rightMargin: -border.width * 10
-            }
-
-            gradient: Gradient {
-                GradientStop { position: 1; color: "#222" }
-                GradientStop { position: 0; color: "#444" }
             }
         }
 
@@ -108,7 +108,7 @@ Page {
     // Background color
     //
     background: Rectangle {
-        color: "#35354a"
+        color: app.windowBackgroundColor
     }
 
     //

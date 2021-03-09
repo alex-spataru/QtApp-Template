@@ -39,6 +39,8 @@ ApplicationWindow {
     // Global properties
     //
     readonly property int spacing: 8
+    readonly property color foregroundColor: "#ffffff"
+    readonly property color windowBackgroundColor: "#121920"
     readonly property string monoFont: {
         switch (Qt.platform.os) {
         case "osx":
@@ -91,11 +93,12 @@ ApplicationWindow {
     title: Cpp_AppName + " v" + Cpp_AppVersion
 
     //
-    // Fusion palette hacks (I don't know why these specefic values are ignored from the
-    // C++ generated palette)
+    // Theme options
     //
-    palette.base: "#191919"
-    palette.buttonText: "#ffffff"
+    palette.text: app.foregroundColor
+    palette.buttonText: app.foregroundColor
+    palette.windowText: app.foregroundColor
+    palette.window: app.windowBackgroundColor
 
     //
     // Display the window & check for updates in 500 ms (we do this so that

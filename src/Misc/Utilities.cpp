@@ -97,20 +97,19 @@ void Utilities::configureDarkUi()
 
     // clang-format off
     QPalette palette;
-    palette.setColor(QPalette::Base,            QColor("#191919"));
-    palette.setColor(QPalette::Link,            QColor("#2a82da"));
-    palette.setColor(QPalette::Button,          QColor("#353535"));
-    palette.setColor(QPalette::Window,          QColor("#252525"));
+    palette.setColor(QPalette::Base,            QColor("#21373f"));
+    palette.setColor(QPalette::Link,            QColor("#409da0"));
+    palette.setColor(QPalette::Button,          QColor("#21373f"));
+    palette.setColor(QPalette::Window,          QColor("#21373f"));
     palette.setColor(QPalette::Text,            QColor("#ffffff"));
-    palette.setColor(QPalette::Midlight,        QColor("#2a82da"));
-    palette.setColor(QPalette::Highlight,       QColor("#2a82da"));
-    palette.setColor(QPalette::BrightText,      QColor("#ff0000"));
+    palette.setColor(QPalette::Midlight,        QColor("#0e1419"));
+    palette.setColor(QPalette::Highlight,       QColor("#409da0"));
+    palette.setColor(QPalette::BrightText,      QColor("#ffffff"));
     palette.setColor(QPalette::ButtonText,      QColor("#ffffff"));
     palette.setColor(QPalette::WindowText,      QColor("#ffffff"));
-    palette.setColor(QPalette::ToolTipBase,     QColor("#ffffff"));
-    palette.setColor(QPalette::ToolTipText,     QColor("#ffffff"));
-    palette.setColor(QPalette::AlternateBase,   QColor("#353535"));
-    palette.setColor(QPalette::HighlightedText, QColor("#000000"));
+    palette.setColor(QPalette::ToolTipBase,     QColor("#e6e0b2"));
+    palette.setColor(QPalette::ToolTipText,     QColor("#e6e0b2"));
+    palette.setColor(QPalette::HighlightedText, QColor("#e6e0b2"));
     qApp->setPalette(palette);
     // clang-format on
 }
