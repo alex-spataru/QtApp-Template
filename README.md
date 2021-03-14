@@ -12,10 +12,11 @@ A simple template for Qt apps with the following features:
 - Automated [builds & artifact upload](https://github.com/alex-spataru/QtApp-Template/actions) for Windows, macOS & GNU/Linux.
 - Comes with [issue templates](https://github.com/alex-spataru/QtApp-Template/issues/new/choose).
 - [Code of conduct](CODE_OF_CONDUCT.md) file.
-- Translation [template](assets/translations) files & [code](src/Translator.h).
+- Translation [template](assets/translations) files & [code](src/Misc/Translator.h).
 - Deploy configuration for [Windows](deploy/windows), [macOS](deploy/macOS) & [GNU/Linux](deploy/linux).
 - [NSIS installer](deploy/windows/nsis/setup.nsi) for Windows.
 - Save window size, position & maximize status automatically.
+- [Utilities](src/Misc/Utilities.h) class.
 - Display CLI output data on Windows if the application is called from the command line.
 - Load [`UI.qml`](assets/qml/UI.qml) asynchronously (to keep [`main.qml`](assets/qml/main.qml) small).
 - Integration with [QSimpleUpdater](https://github.com/alex-spataru/QSimpleUpdater) & modified [CuteLogger](https://github.com/alex-spataru/CuteLogger).
