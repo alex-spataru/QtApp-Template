@@ -103,3 +103,13 @@ SOURCES += \
     src/Misc/Utilities.cpp \
     src/Misc/Translator.cpp \
     src/main.cpp
+
+#-------------------------------------------------------------------------------
+# Deploy files
+#-------------------------------------------------------------------------------
+
+OTHER_FILES += \
+    deploy/linux/* \
+    deploy/macOS/* \
+    deploy/windows/nsis/* \
+    deploy/windows/resources/*

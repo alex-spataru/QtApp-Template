@@ -25,7 +25,7 @@ Unicode True
 
 !define APPNAME                      "Qt App"
 !define EXECNAME                     "QtApp"
-!define COMPANYNAME                  "An awesome developer"
+!define COMPANYNAME                  "Alex Spataru"
 !define DESCRIPTION                  "An awesome description"
 !define VERSIONMAJOR                 1
 !define VERSIONMINOR                 0
