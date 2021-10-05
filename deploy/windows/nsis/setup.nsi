@@ -71,7 +71,7 @@ FunctionEnd
 
 Section "${APPNAME} (required)" SecDummy
   SectionIn RO
-  SetOutPath "${INSTALL_DIR}"
+  SetOutPath "$INSTDIR"
   File /r "${APPNAME}\*"
   
   ${GetSize} "$INSTDIR" "/S=0K" $0 $1 $2
@@ -80,12 +80,12 @@ Section "${APPNAME} (required)" SecDummy
   DeleteRegKey HKCU "Software\${COMPANYNAME}\${APPNAME}"
   DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${COMPANYNAME} ${APPNAME}"
 
-  WriteUninstaller "${INSTALL_DIR}\uninstall.exe"
+  WriteUninstaller "$INSTDIR\uninstall.exe"
   WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${COMPANYNAME} ${APPNAME}" "DisplayName"      "${APPNAME}"
-  WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${COMPANYNAME} ${APPNAME}" "UninstallString"  "${INSTALL_DIR}\uninstall.exe"
-  WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${COMPANYNAME} ${APPNAME}" "InstallLocation"  "${INSTALL_DIR}"
+  WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${COMPANYNAME} ${APPNAME}" "UninstallString"  "$INSTDIR\uninstall.exe"
+  WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${COMPANYNAME} ${APPNAME}" "InstallLocation"  "$INSTDIR"
   WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${COMPANYNAME} ${APPNAME}" "Publisher"        "${COMPANYNAME}"
-  WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${COMPANYNAME} ${APPNAME}" "DisplayIcon"      "${INSTALL_DIR}\icon.ico"
+  WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${COMPANYNAME} ${APPNAME}" "DisplayIcon"      "$INSTDIR\icon.ico"
   WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${COMPANYNAME} ${APPNAME}" "DisplayVersion"   ${VERSIONMAJOR}.${VERSIONMINOR}${VERSIONBUILD}
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${COMPANYNAME} ${APPNAME}" "VersionMajor"     ${VERSIONMAJOR}
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${COMPANYNAME} ${APPNAME}" "VersionMinor"     ${VERSIONMINOR}
@@ -95,16 +95,16 @@ Section "${APPNAME} (required)" SecDummy
 SectionEnd
 
 Section "Start Menu Shortcuts"
-  CreateShortCut  "$SMPROGRAMS\${APPNAME}.lnk" "${INSTALL_DIR}\bin\${EXECNAME}.exe" "" "${INSTALL_DIR}\bin\${EXECNAME}.exe" 0
+  CreateShortCut  "$SMPROGRAMS\${APPNAME}.lnk" "$INSTDIR\bin\${EXECNAME}.exe" "" "$INSTDIR\bin\${EXECNAME}.exe" 0
 SectionEnd
 
 Section "Install Visual C++ Redistributable"
-  ExecWait "${INSTALL_DIR}\bin\vc_redist.x64.exe /quiet /norestart"
-  Delete "${INSTALL_DIR}\bin\vc_redist.x64.exe"
+  ExecWait "$INSTDIR\bin\vc_redist.x64.exe /quiet /norestart"
+  Delete "$INSTDIR\bin\vc_redist.x64.exe"
 SectionEnd
 
 Function RunApplication
-  ExecShell "" "${INSTALL_DIR}\bin\${EXECNAME}.exe"
+  ExecShell "" "$INSTDIR\bin\${EXECNAME}.exe"
 FunctionEnd
 
 Function un.onInit
@@ -116,7 +116,7 @@ Function un.onInit
 FunctionEnd
 
 Section "Uninstall"
-  RMDir /r "${INSTALL_DIR}"
+  RMDir /r "$INSTDIR"
   RMDir /r "$SMPROGRAMS\${APPNAME}.lnk"
   DeleteRegKey HKCU "Software\${COMPANYNAME}\${APPNAME}"
   DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${COMPANYNAME} ${APPNAME}"
