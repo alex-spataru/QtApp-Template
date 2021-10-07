@@ -18,7 +18,6 @@ env:
   QMAKE_PROJECT: "QtApp.pro"
   QML_DIR_NIX: "assets/qml"
   QML_DIR_WIN: "assets\\qml"
-  QT_DOWNLOAD_MIRROR: http://mirrors.ocf.berkeley.edu/qt/
 
 #--------------------------------------------------------------------------------
 # Workflow jobs (GNU/Linux, macOS & Windows)
@@ -26,10 +25,10 @@ env:
 
 jobs:
   #
-  # GNU/Linux build (we run on Ubuntu 16.04 to generate AppImage)
+  # GNU/Linux build (we run on Ubuntu 18.04 to generate AppImage)
   #
   build-linux:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-18.04
     steps:
       #
       # Checkout the repository
@@ -55,8 +54,6 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
-          modules: qtcharts
-          mirror: ${{env.QT_DOWNLOAD_MIRROR}}
           cached: ${{steps.cache-qt.outputs.cache-hit}}
           
       #
@@ -131,8 +128,6 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
-          modules: qtcharts
-          mirror: ${{env.QT_DOWNLOAD_MIRROR}}
           cached: ${{steps.cache-qt.outputs.cache-hit}}
       
       #
@@ -207,8 +202,6 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
-          modules: qtcharts
-          mirror: ${{env.QT_DOWNLOAD_MIRROR}}
           cached: ${{steps.cache-qt.outputs.cache-hit}}
           
       #
