@@ -129,6 +129,81 @@
     </message>
 </context>
 <context>
+    <name>Misc::Utilities</name>
+    <message>
+        <source>Ok</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Save all</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Yes to all</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>No to all</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Abort</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Restore defaults</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>UI</name>
     <message>
         <source>Check for updates</source>

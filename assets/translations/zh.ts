@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">关</translation>
     </message>
     <message>
         <source>Download complete!</source>
@@ -126,6 +126,81 @@
     <message>
         <source>1 second</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Misc::Utilities</name>
+    <message>
+        <source>Ok</source>
+        <translation>认可</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>拯救</translation>
+    </message>
+    <message>
+        <source>Save all</source>
+        <translation>保存所有</translation>
+    </message>
+    <message>
+        <source>Open</source>
+        <translation>开放式</translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation>是</translation>
+    </message>
+    <message>
+        <source>Yes to all</source>
+        <translation>是的，对所有</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation>没有</translation>
+    </message>
+    <message>
+        <source>No to all</source>
+        <translation>拒绝所有</translation>
+    </message>
+    <message>
+        <source>Abort</source>
+        <translation>中止</translation>
+    </message>
+    <message>
+        <source>Retry</source>
+        <translation>重试</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation>忽略不计</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>关</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Discard</source>
+        <translation>弃置</translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation>帮助</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>申请</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>复位</translation>
+    </message>
+    <message>
+        <source>Restore defaults</source>
+        <translation>恢复默认值</translation>
     </message>
 </context>
 <context>

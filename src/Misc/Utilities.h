@@ -36,9 +36,9 @@ class Utilities : public QObject
 public:
     // clang-format off
     static Utilities* getInstance();
-    static int showMessageBox(QString text,
-                              QString informativeText,
-                              QString windowTitle = qAppName(),
+    static int showMessageBox(const QString &text,
+                              const QString &informativeText,
+                              const QString &windowTitle = qAppName(),
                               QMessageBox::StandardButtons bt = QMessageBox::Ok);
     //clang-format on
 
