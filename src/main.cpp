@@ -42,6 +42,27 @@
 #endif
 
 /**
+ * Prints the current application version to the console
+ */
+static void cliShowVersion()
+{
+    auto appver = QString("%1 version %2").arg(APP_NAME, APP_VERSION);
+    auto author = QString("Written by %1").arg(APP_DEVELOPER);
+
+    qDebug() << appver.toStdString().c_str();
+    qDebug() << author.toStdString().c_str();
+}
+
+/**
+ * Removes all application settings
+ */
+static void cliResetSettings()
+{
+    QSettings(APP_DEVELOPER, APP_NAME).clear();
+    qDebug() << APP_NAME << "settings cleared!";
+}
+
+/**
  * @brief Entry-point function of the application
  *
  * @param argc argument count
@@ -66,7 +87,9 @@ int main(int argc, char **argv)
 #endif
 
     // Set application attributes
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#endif
 
     // Init. application
     QApplication app(argc, argv);
@@ -75,6 +98,27 @@ int main(int argc, char **argv)
     app.setOrganizationName(APP_DEVELOPER);
     app.setOrganizationDomain(APP_SUPPORT_URL);
     app.setStyle(QStyleFactory::create("Fusion"));
+
+    // Read arguments
+    QString arguments;
+    if (app.arguments().count() >= 2)
+        arguments = app.arguments().at(1);
+
+    // There are some CLI arguments, read them
+    if (!arguments.isEmpty() && arguments.startsWith("-"))
+    {
+        if (arguments == "-v" || arguments == "--version")
+        {
+            cliShowVersion();
+            return EXIT_SUCCESS;
+        }
+
+        else if (arguments == "-r" || arguments == "--reset")
+        {
+            cliResetSettings();
+            return EXIT_SUCCESS;
+        }
+    }
 
     // Configure CuteLogger
     auto fileAppender = new FileAppender;

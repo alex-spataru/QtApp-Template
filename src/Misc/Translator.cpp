@@ -23,6 +23,7 @@
 #include "Translator.h"
 
 #include <Logger.h>
+#include <QCoreApplication>
 #include <ConsoleAppender.h>
 
 /**

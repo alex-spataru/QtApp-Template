@@ -20,19 +20,21 @@
  * THE SOFTWARE.
  */
 
-#ifndef MISC_TRANSLATOR_H
-#define MISC_TRANSLATOR_H
+#pragma once
 
 #include <QLocale>
 #include <QObject>
 #include <QTranslator>
 
-#ifdef QT_QML_LIB
-#    include <QtQml>
-#endif
-
 namespace Misc
 {
+/**
+ * @brief The Translator class
+ *
+ * The @c Translator module provides the user interface with a list of available
+ * translations, and loads the specified translation file during application startup or
+ * when the user changes the language of the application.
+ */
 class Translator : public QObject
 {
     // clang-format off
@@ -50,7 +52,11 @@ signals:
     void languageChanged();
 
 private:
-    Translator();
+    explicit Translator();
+    Translator(Translator &&) = delete;
+    Translator(const Translator &) = delete;
+    Translator &operator=(Translator &&) = delete;
+    Translator &operator=(const Translator &) = delete;
 
 public:
     static Translator &getInstance();
@@ -68,5 +74,3 @@ private:
     QTranslator m_translator;
 };
 }
-
-#endif
