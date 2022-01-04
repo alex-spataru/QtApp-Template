@@ -36,25 +36,21 @@
 
 #include <AppInfo.h>
 
-using namespace Misc;
-
 /**
  * Returns the onlt instance of the class, this is to be used by the QML interface
  */
-static Utilities *INSTANCE = nullptr;
-Utilities *Utilities::getInstance()
+Misc::Utilities &Misc::Utilities::getInstance()
 {
-    if (!INSTANCE)
-        INSTANCE = new Utilities;
-
-    return INSTANCE;
+    static Utilities instance;
+    return instance;
 }
 
 /**
  * Shows a macOS-like message box with the given properties
  */
-int Utilities::showMessageBox(const QString &text, const QString &informativeText, const QString &windowTitle,
-                              QMessageBox::StandardButtons bt)
+int Misc::Utilities::showMessageBox(const QString &text, const QString &informativeText,
+                                    const QString &windowTitle,
+                                    QMessageBox::StandardButtons bt)
 {
     // Get app icon
     auto icon = QPixmap(APP_ICON).scaled(64, 64, Qt::IgnoreAspectRatio,
@@ -113,7 +109,7 @@ int Utilities::showMessageBox(const QString &text, const QString &informativeTex
 /**
  * Displays the about Qt dialog
  */
-void Utilities::aboutQt()
+void Misc::Utilities::aboutQt()
 {
     qApp->aboutQt();
 }
@@ -121,7 +117,7 @@ void Utilities::aboutQt()
 /**
  * Displays the location of the current log file in the Finder window
  */
-void Utilities::openLogFile()
+void Misc::Utilities::openLogFile()
 {
     revealFile(LOG_FILE);
 }
@@ -129,7 +125,7 @@ void Utilities::openLogFile()
 /**
  * Changes the application palette so that a dark UI can be displayed
  */
-void Utilities::configureDarkUi()
+void Misc::Utilities::configureDarkUi()
 {
     qApp->setStyle(QStyleFactory::create("Fusion"));
     QQuickStyle::setStyle("Fusion");
@@ -161,7 +157,7 @@ void Utilities::configureDarkUi()
  * Hacking details:
  * http://stackoverflow.com/questions/3490336/how-to-reveal-in-finder-or-show-in-explorer-with-qt
  */
-void Utilities::revealFile(const QString &pathToReveal)
+void Misc::Utilities::revealFile(const QString &pathToReveal)
 {
 #if defined(Q_OS_WIN)
     QStringList param;

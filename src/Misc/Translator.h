@@ -53,7 +53,7 @@ private:
     Translator();
 
 public:
-    static Translator *getInstance();
+    static Translator &getInstance();
 
     int language() const;
     int systemLanguage() const;

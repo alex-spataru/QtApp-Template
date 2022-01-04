@@ -93,8 +93,8 @@ int main(int argc, char **argv)
     // Init application modules
     QQmlApplicationEngine engine;
     auto updater = QSimpleUpdater::getInstance();
-    auto utilities = Misc::Utilities::getInstance();
-    auto translator = Misc::Translator::getInstance();
+    auto utilities = &Misc::Utilities::getInstance();
+    auto translator = &Misc::Translator::getInstance();
 
     // Configure dark UI
     Misc::Utilities::configureDarkUi();

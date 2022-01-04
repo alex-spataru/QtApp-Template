@@ -25,17 +25,10 @@
 #include <Logger.h>
 #include <ConsoleAppender.h>
 
-using namespace Misc;
-
-/**
- * Only instance of the class
- */
-static Translator *INSTANCE = nullptr;
-
 /**
  * Constructor function
  */
-Translator::Translator()
+Misc::Translator::Translator()
 {
     m_language = systemLanguage();
     LOG_TRACE() << "Class initialized";
@@ -45,19 +38,17 @@ Translator::Translator()
 /**
  * Returns the only instance of the class
  */
-Translator *Translator::getInstance()
+Misc::Translator &Misc::Translator::getInstance()
 {
-    if (!INSTANCE)
-        INSTANCE = new Translator;
-
-    return INSTANCE;
+    static Translator instance;
+    return instance;
 }
 
 /**
  * Returns the current language ID, which corresponds to the indexes of the
  * languages returned by the \c availableLanguages() function.
  */
-int Translator::language() const
+int Misc::Translator::language() const
 {
     return m_language;
 }
@@ -66,7 +57,7 @@ int Translator::language() const
  * Returns the appropiate language ID based on the current locale settings of
  * the host's operating system.
  */
-int Translator::systemLanguage() const
+int Misc::Translator::systemLanguage() const
 {
     int lang;
     switch (QLocale::system().language())
@@ -94,7 +85,7 @@ int Translator::systemLanguage() const
 /**
  * Returns a list with the available translation languages.
  */
-QStringList Translator::availableLanguages() const
+QStringList Misc::Translator::availableLanguages() const
 {
     return QStringList { "English", "Español", "简体中文" };
 }
@@ -106,7 +97,7 @@ QStringList Translator::availableLanguages() const
  * @param language language ID based on the indexes of the \a
  * availableLanguages() function
  */
-void Translator::setLanguage(const int language)
+void Misc::Translator::setLanguage(const int language)
 {
     QString langName;
     QLocale locale;
@@ -142,7 +133,7 @@ void Translator::setLanguage(const int language)
  * @param language  name of the *.qm file to load from the "translations"
  *                  directory inside the application's resources
  */
-void Translator::setLanguage(const QLocale &locale, const QString &language)
+void Misc::Translator::setLanguage(const QLocale &locale, const QString &language)
 {
     qApp->removeTranslator(&m_translator);
     m_translator.load(locale, ":/translations/" + language + ".qm");

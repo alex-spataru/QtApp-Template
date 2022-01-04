@@ -35,7 +35,7 @@ class Utilities : public QObject
 
 public:
     // clang-format off
-    static Utilities* getInstance();
+    static Utilities &getInstance();
     static int showMessageBox(const QString &text,
                               const QString &informativeText,
                               const QString &windowTitle = qAppName(),
