@@ -1,5 +1,4 @@
-#ifndef APP_INFO_H
-#define APP_INFO_H
+#pragma once
 
 #include <QDir>
 #include <QString>
@@ -14,5 +13,3 @@
 #define LOG_FORMAT      "[%{time}] %{message:-72} [%{TypeOne}] [%{function}]\n"
 #define LOG_FILE        QString("%1/%2.log").arg(QDir::tempPath(), APP_NAME)
 // clang-format on
-
-#endif
