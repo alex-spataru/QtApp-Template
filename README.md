@@ -15,6 +15,7 @@ A simple template for Qt apps with the following features:
 - Translation [template](assets/translations) files & [code](src/Misc/Translator.h).
 - Deploy configuration for [Windows](deploy/windows), [macOS](deploy/macOS) & [GNU/Linux](deploy/linux).
 - [NSIS installer](deploy/windows/nsis/setup.nsi) for Windows.
+- [OpenSSL](https://github.com/alex-spataru/QtApp-Template/tree/master/deploy/windows) bundled for the NSIS installer.
 - Save window size, position & maximize status automatically.
 - [Utilities](src/Misc/Utilities.h) class.
 - Display CLI output data on Windows if the application is called from the command line.
