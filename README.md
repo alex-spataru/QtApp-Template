@@ -4,7 +4,7 @@
 
 # Qt App Template
 
-[![Build Status](https://github.com/alex-spataru/QtApp-Template/workflows/Build/badge.svg)](https://github.com/alex-spataru/QtApp-Template/actions)
+[![Deploy](https://github.com/alex-spataru/QtApp-Template/actions/workflows/Build.yml/badge.svg)](https://github.com/alex-spataru/QtApp-Template/actions/workflows/Build.yml)
 
 A simple template for Qt apps with the following features:
 
